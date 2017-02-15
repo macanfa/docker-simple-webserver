@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RestFul UI</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <script type="application/x-javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="application/x-javascript" src="/javascripts/app.js"></script>
+    <script type="application/x-javascript" src="/javascripts/text-parser.js"></script>
+</head>
+
+<body>
+    <nav>
+        [ <a href="/">/</a> ]
+    </nav>
+    <h1>RestFul UI</h1>
+    <div class="col2-group">
+        <div>
+            <input type="url" id="url" placeholder="http://api.domain.org/v1.0/routes">
+            <input type="text" id="api-key" placeholder="Api-Key" value="api-xxxxxxxxxxxxxxxxxxx">
+            <input type="url" id="link" placeholder="http://www.news.org/id/1234">
+            <textarea id="body" rows="24" placeholder="body"></textarea>
+            <select id="methode">
+                <option>GET</option>
+                <option>POST</option>
+                <option>PUT</option>
+                <option>DELETE</option>
+            </select>
+            <button onclick="restFul(callback)">Run Command</button>
+            <button onclick="normalizeData()">Normalize Data</button>
+        </div>
+        <div>
+            <textarea id="result" rows="32" spellcheck="false"></textarea>
+        </div>
+    </div>
+</body>
+
+</html>

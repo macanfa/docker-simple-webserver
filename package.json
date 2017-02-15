@@ -1,0 +1,20 @@
+{
+    "name": "webserver",
+    "version": "1.0.0",
+    "description": "Simple Webserver",
+    "main": "server.js",
+    "author": "Andy Fall",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/macanfa/docker-simple-webserver.git"
+    },
+    "scripts": {
+        "start": "node server.js"
+    },
+    "devDependencies": {},
+    "optionalDependencies": {},
+    "engines": {
+        "node": "*"
+    }
+}
