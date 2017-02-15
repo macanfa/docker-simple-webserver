@@ -26,7 +26,6 @@ function getDateTime() {
     return year + "-" + month + "-" + day + " " + hour + ":" + min + ":" + sec + "." + milli
 }
 
-
 function logger(req, res) {
     var ip = req.headers['x-forwarded-for'] ||
         req.connection.remoteAddress ||

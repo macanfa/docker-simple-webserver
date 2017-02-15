@@ -1,5 +1,5 @@
 {
-    "name": "webserver",
+    "name": "docker-simple-webserver",
     "version": "1.0.0",
     "description": "Simple Webserver",
     "main": "server.js",
