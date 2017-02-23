@@ -11,9 +11,6 @@ function callback(data) {
     }
 }
 
-//
-//  ToolFunctions
-//
 function sortArray(a, b) {
     if (a.name < b.name)
         return -1;
@@ -62,19 +59,13 @@ function generateUUID() {
     return uuid;
 }
 
-function normalizeData() {
-    data = document.getElementById("body").value
-    link = document.getElementById("link").value || document.URL
-    document.getElementById("body").value = parseTXT(generateUUID(), link, data)
-}
-
 //
 //  jQuery API Calls
 //
 function restFul(callback) {
     var url = document.getElementById("url").value,
         methode = document.getElementById("methode").value,
-        headers = { "Api-Key": document.getElementById("api-key").value }
+        headers = JSON.parse(document.getElementById("header").value)
 
     switch (methode) {
         case 'POST':
