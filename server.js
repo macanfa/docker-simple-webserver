@@ -38,15 +38,14 @@ function logger(req, res) {
 if (cluster.isMaster) {
     for (var i = 0; i < numCPUs; i++) {
         cluster.fork()
-        console.log(getDateTime() + "\t" + 'Worker ' + i + ' started')
+        console.log(getDateTime() + "\t" + 'Worker:' + (i + 1) + ' started')
     }
     cluster.on('exit', function(worker, code, signal) {
-        console.log(getDateTime() + "\t" + 'WorkerID ' + worker.process.pid + ' died')
+        console.log(getDateTime() + "\t" + 'WorkerID:' + worker.process.pid + ' died')
         cluster.fork()
     })
 } else {
     http.createServer(function(req, res) {
-
         var parsedUrl = url.parse(req.url),
             pathname = parsedUrl.pathname,
             ext = path.parse(pathname).ext || '.html',
@@ -64,7 +63,6 @@ if (cluster.isMaster) {
                 '.pdf': 'application/pdf',
                 '.doc': 'application/msword'
             }
-
         fs.exists(docRoot + pathname, function(exist) {
             if (!exist) {
                 res.statusCode = 404;
@@ -87,5 +85,5 @@ if (cluster.isMaster) {
             })
         })
     }).listen(parseInt(port))
-    console.log(getDateTime() + "\t" + 'Worker ClusterID :' + process.pid + ' Server listening on port : ' + port)
+    console.log(getDateTime() + "\t" + 'Worker:' + cluster.worker.id + ' ClusterID:' + process.pid + ' Server listening on port:' + port)
 }

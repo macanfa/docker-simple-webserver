@@ -64,10 +64,14 @@ function generateUUID() {
 //
 function restFul(callback) {
     var url = document.getElementById("url").value,
-        methode = document.getElementById("methode").value,
-        headers = JSON.parse(document.getElementById("header").value)
+        method = document.getElementById("method").value
 
-    switch (methode) {
+    if (document.getElementById("header").value) {
+        headers = JSON.parse(document.getElementById("header").value)
+    } else {
+        headers = ''
+    }
+    switch (method) {
         case 'POST':
         case 'PUT':
             data = document.getElementById("body").value
@@ -76,11 +80,10 @@ function restFul(callback) {
             data = ''
             break
     }
-
     $.ajax({
         url: url,
         headers: headers,
-        type: methode,
+        type: method,
         contentType: "application/json; charset=utf-8",
         data: data,
         success: function(data, textStatus, jqXHR) {
@@ -91,5 +94,4 @@ function restFul(callback) {
         }
     })
     return false;
-
 }
